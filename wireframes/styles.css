@@ -172,3 +172,13 @@ textarea.input { height: 120px; padding-top: 10px; resize: none; }
 
 .lines i { display: block; height: 8px; margin-bottom: 8px; background: var(--g200); border-radius: 2px; }
 .lines i:last-child { width: 60%; margin-bottom: 0; }
+
+.specs { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; font-size: 14px; padding: 16px 0; border-top: var(--line); border-bottom: var(--line); }
+.specs dt { color: var(--g500); }
+.specs dd { color: var(--g800); }
+
+.pend { color: #c0392b; border-left: 3px solid #c0392b; padding-left: 12px; font-size: 14px; line-height: 1.5; }
+
+.quote { font-size: 20px; line-height: 1.5; font-weight: 500; color: var(--g900); border-left: 3px solid var(--g800); padding-left: 20px; }
+.big { font-size: 30px; line-height: 1.25; font-weight: 600; color: var(--g900); max-width: 860px; }
+.acc p + p { padding-top: 0; }
