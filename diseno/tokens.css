@@ -1,0 +1,123 @@
+/* ==========================================================================
+   RAIGAL · Design tokens
+   Dos capas:
+   1) Primitivos  --raigal-*   valores crudos. No se usan directo en componentes.
+   2) Semánticos  --color-*, --fuente-*, --texto-*, --espacio-*, --borde-*
+                  lo que usan los componentes y las páginas.
+
+   Fuentes (cargar en el <head> de cada página):
+   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Familjen+Grotesk:wght@400..700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+   Estado: fundamentos aprobados (color, tipografía, escala, espaciado, bordes).
+   Pendiente: grilla, breakpoints definitivos, estados (hover, foco, error) y
+   colores funcionales (error, éxito).
+   ========================================================================== */
+
+:root {
+
+  /* ---------- 1. PRIMITIVOS ---------- */
+
+  /* Color (azul y tinta estimados desde el logo: confirmar con el manual de marca) */
+  --raigal-papel: #FAFAF8;
+  --raigal-tinta: #1E1E1C;
+  --raigal-azul:  #1A5AE8;
+  --raigal-gris:  #E9E9E6;   /* solo para fotos pendientes y superficies neutras */
+
+  /* Familias */
+  --raigal-familjen: 'Familjen Grotesk', system-ui, sans-serif;
+  --raigal-inter:    'Inter Tight', system-ui, sans-serif;
+  --raigal-mono:     'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Escala de espacios: base 8px */
+  --raigal-1: 4px;
+  --raigal-2: 8px;
+  --raigal-3: 16px;
+  --raigal-4: 24px;
+  --raigal-5: 32px;
+  --raigal-6: 48px;
+  --raigal-7: 64px;
+  --raigal-8: 96px;
+  --raigal-9: 128px;
+
+
+  /* ---------- 2. SEMÁNTICOS ---------- */
+
+  /* Color: superficies y texto */
+  --color-fondo:         var(--raigal-papel);   /* fondo de página */
+  --color-texto:         var(--raigal-tinta);   /* texto sobre fondo claro */
+  --color-linea:         var(--raigal-tinta);   /* bordes y divisores */
+  --color-acento:        var(--raigal-azul);    /* acentos de texto, botones, índices */
+  --color-fondo-suave:   var(--raigal-gris);    /* placeholders de imagen */
+
+  /* Color: superficies invertidas */
+  --color-fondo-azul:    var(--raigal-azul);    /* bloques de color a página completa */
+  --color-texto-sobre-azul:  var(--raigal-papel);
+  --color-fondo-oscuro:  var(--raigal-tinta);
+  --color-texto-sobre-oscuro: var(--raigal-papel);
+  /* Regla: el azul NO se usa como texto sobre fondo oscuro (contraste ≈ 2,9:1).
+     Sobre oscuro, el azul va solo en puntos, formas e íconos grandes. */
+  --color-acento-sobre-oscuro: var(--raigal-azul);   /* solo formas */
+
+  /* Botones */
+  --boton-fondo:        var(--color-acento);
+  --boton-texto:        var(--raigal-papel);
+  --boton-borde:        var(--color-acento);
+  --boton-sec-fondo:    transparent;
+  --boton-sec-texto:    var(--color-texto);
+  --boton-sec-borde:    var(--color-linea);
+
+  /* Tipografía: familias por rol */
+  --fuente-titulo: var(--raigal-familjen);
+  --fuente-cuerpo: var(--raigal-inter);
+  --fuente-mono:   var(--raigal-mono);
+
+  /* Tipografía: pesos */
+  --peso-titulo: 700;
+  --peso-cuerpo: 400;
+  --peso-medio:  500;
+
+  /* Tipografía: tracking (letter-spacing) */
+  --tracking-titulo: -0.045em;
+  --tracking-mono:    0.04em;
+  --tracking-boton:   0.02em;
+
+  /* Tipografía: tamaños (fluidos: mínimo móvil → máximo escritorio) */
+  --texto-display: clamp(44px, 8vw, 96px);
+  --texto-h1:      clamp(36px, 5.5vw, 64px);
+  --texto-h2:      clamp(28px, 3.6vw, 44px);
+  --texto-h3:      clamp(22px, 2.2vw, 28px);
+  --texto-lead:    20px;
+  --texto-body:    16px;
+  --texto-small:   14px;
+  --texto-label:   12px;
+
+  /* Tipografía: interlineado */
+  --interlineado-display: 0.9;
+  --interlineado-h1:      0.94;
+  --interlineado-h2:      1;
+  --interlineado-h3:      1.1;
+  --interlineado-lead:    1.4;
+  --interlineado-body:    1.5;
+  --interlineado-label:   1.3;
+
+  /* Espaciado semántico (alias de la escala) */
+  --espacio-1: var(--raigal-1);   /*   4  ícono ↔ texto */
+  --espacio-2: var(--raigal-2);   /*   8  separación mínima */
+  --espacio-3: var(--raigal-3);   /*  16  padding interno de botones y campos */
+  --espacio-4: var(--raigal-4);   /*  24  entre elementos de un bloque */
+  --espacio-5: var(--raigal-5);   /*  32  entre elementos de un bloque, margen de página máx. */
+  --espacio-6: var(--raigal-6);   /*  48  entre bloques */
+  --espacio-7: var(--raigal-7);   /*  64  entre bloques */
+  --espacio-8: var(--raigal-8);   /*  96  aire de secciones grandes */
+  --espacio-9: var(--raigal-9);   /* 128  aire de secciones grandes */
+
+  /* Layout (fluido) */
+  --margen-pagina:  clamp(16px, 3vw, 32px);   /* margen lateral */
+  --aire-seccion:   clamp(48px, 8vw, 96px);   /* aire vertical al abrir una sección */
+
+  /* Bordes y forma */
+  --borde-ancho: 1px;
+  --borde:       var(--borde-ancho) solid var(--color-linea);
+  --radio:       0;          /* sin esquinas redondeadas en ningún componente */
+  --sombra:      none;       /* sin sombras */
+}

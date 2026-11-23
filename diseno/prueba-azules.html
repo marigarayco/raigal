@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Prueba de azules</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Familjen+Grotesk:wght@400..700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--color-fondo);color:var(--color-texto);font:var(--peso-cuerpo) var(--texto-body)/var(--interlineado-body) var(--fuente-cuerpo)}
+  .label{font:var(--peso-medio) var(--texto-label)/var(--interlineado-label) var(--fuente-mono);text-transform:uppercase;letter-spacing:var(--tracking-mono)}
+  .t{font-family:var(--fuente-titulo);font-weight:var(--peso-titulo);letter-spacing:var(--tracking-titulo);text-wrap:balance}
+  .aviso{padding:var(--espacio-3) var(--margen-pagina);border-bottom:var(--borde)}
+  .par{display:grid;grid-template-columns:1fr 1fr}
+  .col{border-right:var(--borde);min-width:0;display:flex;flex-direction:column}
+  .col .oscuro{flex:1}
+  .col:last-child{border-right:0}
+  .cab{padding:var(--espacio-3) var(--margen-pagina);border-bottom:var(--borde);display:flex;justify-content:space-between;gap:var(--espacio-3);flex-wrap:wrap}
+  .cab b{background:var(--color-fondo-azul);color:var(--color-texto-sobre-azul);padding:0 var(--espacio-2);font-weight:var(--peso-medio)}
+  .hero{padding:var(--espacio-6) var(--margen-pagina);border-bottom:var(--borde)}
+  .hero h1{font-size:clamp(36px,5vw,64px);line-height:var(--interlineado-h1)}
+  .hero p{margin-top:var(--espacio-3);max-width:40ch;font-size:var(--texto-lead);line-height:var(--interlineado-lead)}
+  .acc{color:var(--color-acento)}
+  .acciones{display:flex;gap:var(--espacio-3);flex-wrap:wrap;margin-top:var(--espacio-4)}
+  .btn{display:inline-block;font:var(--peso-medio) var(--texto-small)/1 var(--fuente-cuerpo);text-transform:uppercase;letter-spacing:var(--tracking-boton);padding:var(--espacio-3) var(--espacio-4);border:var(--borde-ancho) solid var(--boton-borde);background:var(--boton-fondo);color:var(--boton-texto);text-decoration:none}
+  .btn.sec{background:transparent;color:var(--color-texto);border-color:var(--color-linea)}
+  .azulbloque{background:var(--color-fondo-azul);color:var(--color-texto-sobre-azul);padding:var(--espacio-6) var(--margen-pagina);border-bottom:var(--borde)}
+  .azulbloque h2{font-size:clamp(28px,4vw,48px);line-height:1;max-width:16ch}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:var(--borde)}
+  .stats div{padding:var(--espacio-4) var(--margen-pagina);border-right:var(--borde)}
+  .stats div:last-child{border-right:0}
+  .stats b{display:block;font:var(--peso-titulo) clamp(28px,4vw,48px)/1 var(--fuente-titulo);letter-spacing:var(--tracking-titulo);color:var(--color-acento)}
+  .oscuro{background:var(--color-fondo-oscuro);color:var(--color-texto-sobre-oscuro);padding:var(--espacio-6) var(--margen-pagina)}
+  .oscuro h2{font-size:clamp(28px,4vw,48px);line-height:1;max-width:18ch}
+  .oscuro .nota{margin-top:var(--espacio-4);display:grid;gap:var(--espacio-2)}
+  .oscuro .nota span{display:block}
+  .v1 .punto{color:var(--color-acento-sobre-oscuro)}
+
+  /* Dos versiones del azul: se redeclaran los semánticos que dependen de él */
+  .A{--raigal-azul:#1A5AE8}
+  .B{--raigal-azul:#032FA8}
+  .A,.B{
+    --color-acento:var(--raigal-azul);
+    --color-fondo-azul:var(--raigal-azul);
+    --color-acento-sobre-oscuro:var(--raigal-azul);
+    --boton-fondo:var(--raigal-azul);
+    --boton-borde:var(--raigal-azul);
+  }
+  @media (max-width:860px){.par{grid-template-columns:1fr}.col{border-right:0;border-bottom:var(--borde)}}
+</style>
+</head>
+<body>
+<div class="aviso label">Prueba de azul · mismos componentes, tokens reales de tokens.css · solo cambia <code>--raigal-azul</code></div>
+
+<div class="par">
+
+  <!-- A -->
+  <div class="col A">
+    <div class="cab label"><span><b>A</b> Azul del logo estimado</span><span>#1A5AE8</span></div>
+    <div class="hero">
+      <h1 class="t">Transformamos materiales. <span class="acc">Cambiamos miradas.</span></h1>
+      <p>Recuperamos residuos plásticos y los convertimos en placas de plástico reciclado.</p>
+      <div class="acciones"><a class="btn" href="#">Ver productos</a><a class="btn sec" href="#">Contanos tu proyecto</a></div>
+    </div>
+    <div class="azulbloque"><p class="label" style="margin-bottom:var(--espacio-3)">Nuestra postura</p><h2 class="t">No nacimos para reciclar. Nacimos para rediseñar.</h2></div>
+    <div class="stats"><div><b>100 %</b><span class="label">plástico reciclado</span></div><div><b>3</b><span class="label">tipos de plástico</span></div><div><b>1 m²</b><span class="label">placas</span></div></div>
+    <div class="oscuro v1"><h2 class="t">Una solución para tu empresa<span class="punto">.</span></h2>
+      <div class="nota label"><span>Punto azul sobre tinta · 2,9 : 1 (solo forma)</span></div></div>
+  </div>
+
+  <!-- B -->
+  <div class="col B">
+    <div class="cab label"><span><b>B</b> Azul de Juli</span><span>#032FA8</span></div>
+    <div class="hero">
+      <h1 class="t">Transformamos materiales. <span class="acc">Cambiamos miradas.</span></h1>
+      <p>Recuperamos residuos plásticos y los convertimos en placas de plástico reciclado.</p>
+      <div class="acciones"><a class="btn" href="#">Ver productos</a><a class="btn sec" href="#">Contanos tu proyecto</a></div>
+    </div>
+    <div class="azulbloque"><p class="label" style="margin-bottom:var(--espacio-3)">Nuestra postura</p><h2 class="t">No nacimos para reciclar. Nacimos para rediseñar.</h2></div>
+    <div class="stats"><div><b>100 %</b><span class="label">plástico reciclado</span></div><div><b>3</b><span class="label">tipos de plástico</span></div><div><b>1 m²</b><span class="label">placas</span></div></div>
+    <div class="oscuro v1"><h2 class="t">Una solución para tu empresa<span class="punto">.</span></h2>
+      <div class="nota label">
+        <span>1) Punto azul sobre tinta · 1,6 : 1 (casi no se ve)</span>
+        <span>2) Punto en papel: <span style="display:inline;color:var(--raigal-papel);font-weight:700">.</span> · 16 : 1</span>
+        <span>3) Punto en azul más claro: <span style="display:inline;color:#4C7DF0;font-weight:700">.</span> · #4C7DF0 (solo forma)</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

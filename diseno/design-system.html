@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Design system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Familjen+Grotesk:wght@400..700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  /* Estilos de esta página: usan solo tokens */
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--color-fondo);color:var(--color-texto);font:var(--peso-cuerpo) var(--texto-body)/var(--interlineado-body) var(--fuente-cuerpo)}
+  a{color:inherit}
+  code{font:var(--peso-medio) var(--texto-label)/1 var(--fuente-mono);background:var(--color-fondo-suave);padding:2px var(--espacio-2)}
+
+  .label{font:var(--peso-medio) var(--texto-label)/var(--interlineado-label) var(--fuente-mono);text-transform:uppercase;letter-spacing:var(--tracking-mono)}
+  .t{font-family:var(--fuente-titulo);font-weight:var(--peso-titulo);letter-spacing:var(--tracking-titulo);text-wrap:balance}
+  .acc{color:var(--color-acento)}
+
+  .top{position:sticky;top:0;z-index:5;background:var(--color-fondo);border-bottom:var(--borde);display:flex;justify-content:space-between;align-items:center;gap:var(--espacio-3);flex-wrap:wrap;padding:var(--espacio-3) var(--margen-pagina)}
+  .top nav{display:flex;gap:var(--espacio-4);flex-wrap:wrap}
+  .top a{text-decoration:none}
+  .top a:hover{color:var(--color-acento)}
+
+  .intro{padding:var(--aire-seccion) var(--margen-pagina) var(--espacio-6);border-bottom:var(--borde)}
+  .intro h1{font-size:var(--texto-display);line-height:var(--interlineado-display)}
+  .intro p{margin-top:var(--espacio-4);max-width:56ch;font-size:var(--texto-lead);line-height:var(--interlineado-lead)}
+
+  section{border-bottom:var(--borde)}
+  .cab{display:flex;gap:var(--espacio-3);align-items:baseline;padding:var(--espacio-3) var(--margen-pagina);border-bottom:var(--borde)}
+  .cab b{background:var(--color-fondo-azul);color:var(--color-texto-sobre-azul);padding:0 var(--espacio-2);font-weight:var(--peso-medio)}
+  .cuerpo{padding:var(--espacio-6) var(--margen-pagina)}
+  .cuerpo h2{font-size:var(--texto-h2);line-height:var(--interlineado-h2);margin-bottom:var(--espacio-4)}
+  .cuerpo h3{font-size:var(--texto-h3);line-height:var(--interlineado-h3);margin:var(--espacio-6) 0 var(--espacio-3)}
+  .cuerpo p.nota{max-width:70ch;margin-top:var(--espacio-3)}
+
+  /* Muestras de color */
+  .muestras{display:grid;grid-template-columns:repeat(4,1fr);border:var(--borde)}
+  .muestra{border-right:var(--borde)}
+  .muestra:last-child{border-right:0}
+  .muestra i{display:block;height:120px;border-bottom:var(--borde)}
+  .muestra div{padding:var(--espacio-3)}
+  .muestra .label{display:block}
+  @media (max-width:760px){.muestras{grid-template-columns:1fr 1fr}.muestra:nth-child(2){border-right:0}.muestra:nth-child(-n+2){border-bottom:var(--borde)}}
+
+  /* Tablas de tokens */
+  table{width:100%;border-collapse:collapse;border:var(--borde)}
+  th,td{text-align:left;vertical-align:baseline;padding:var(--espacio-3);border-bottom:var(--borde);font-size:var(--texto-small)}
+  th{font:var(--peso-medio) var(--texto-label)/1.3 var(--fuente-mono);text-transform:uppercase;letter-spacing:var(--tracking-mono)}
+  tr:last-child td{border-bottom:0}
+  .scroll{overflow-x:auto}
+  .scroll table{min-width:640px}
+  .ok{color:var(--color-acento);font-weight:var(--peso-medio)}
+  .no{font-weight:var(--peso-medio);text-decoration:underline}
+
+  /* Contraste */
+  .par{display:inline-block;padding:var(--espacio-2) var(--espacio-3);border:var(--borde);font-weight:var(--peso-medio)}
+
+  /* Escala tipográfica */
+  .escala > div{display:grid;grid-template-columns:200px 1fr;border-bottom:var(--borde)}
+  .escala > div:first-child{border-top:var(--borde)}
+  .escala .meta{padding:var(--espacio-4) var(--espacio-3) var(--espacio-4) 0;border-right:var(--borde)}
+  .escala .meta b{display:block;color:var(--color-acento);font-weight:var(--peso-medio);margin-bottom:var(--espacio-1)}
+  .escala .ej{padding:var(--espacio-4) 0 var(--espacio-4) var(--espacio-4);min-width:0}
+  @media (max-width:760px){.escala > div{grid-template-columns:1fr}.escala .meta{border-right:0;border-bottom:var(--borde);padding:var(--espacio-3) 0}.escala .ej{padding:var(--espacio-3) 0}}
+  .e-display{font-size:var(--texto-display);line-height:var(--interlineado-display)}
+  .e-h1{font-size:var(--texto-h1);line-height:var(--interlineado-h1)}
+  .e-h2{font-size:var(--texto-h2);line-height:var(--interlineado-h2)}
+  .e-h3{font-size:var(--texto-h3);line-height:var(--interlineado-h3)}
+  .e-lead{font-size:var(--texto-lead);line-height:var(--interlineado-lead);max-width:46ch}
+  .e-body{font-size:var(--texto-body);line-height:var(--interlineado-body);max-width:60ch}
+  .e-small{font-size:var(--texto-small);line-height:var(--interlineado-body);max-width:60ch}
+
+  .familias{display:grid;grid-template-columns:repeat(3,1fr);border:var(--borde)}
+  .familias > div{padding:var(--espacio-4);border-right:var(--borde)}
+  .familias > div:last-child{border-right:0}
+  .familias .gran{font-size:var(--texto-h1);line-height:1;margin:var(--espacio-3) 0}
+  @media (max-width:860px){.familias{grid-template-columns:1fr}.familias > div{border-right:0;border-bottom:var(--borde)}}
+
+  /* Espaciado */
+  .esp{display:grid;gap:var(--espacio-2)}
+  .esp > div{display:grid;grid-template-columns:120px 56px 1fr;align-items:center;gap:var(--espacio-3)}
+  .esp i{display:block;height:var(--espacio-3);background:var(--color-fondo-azul)}
+
+  /* Botones y ejemplos */
+  .btn{display:inline-block;font:var(--peso-medio) var(--texto-small)/1 var(--fuente-cuerpo);text-transform:uppercase;letter-spacing:var(--tracking-boton);padding:var(--espacio-3) var(--espacio-4);border:var(--borde-ancho) solid var(--boton-borde);background:var(--boton-fondo);color:var(--boton-texto);border-radius:var(--radio);text-decoration:none}
+  .btn.sec{background:var(--boton-sec-fondo);color:var(--boton-sec-texto);border-color:var(--boton-sec-borde)}
+  .bloques{display:grid;grid-template-columns:1fr 1fr 1fr;border:var(--borde)}
+  .bloques > div{padding:var(--espacio-5) var(--espacio-4);border-right:var(--borde);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;gap:var(--espacio-4)}
+  .bloques > div:last-child{border-right:0}
+  .b-azul{background:var(--color-fondo-azul);color:var(--color-texto-sobre-azul)}
+  .b-oscuro{background:var(--color-fondo-oscuro);color:var(--color-texto-sobre-oscuro)}
+  .b-oscuro .punto{color:var(--color-acento-sobre-oscuro)}
+  @media (max-width:860px){.bloques{grid-template-columns:1fr}.bloques > div{border-right:0;border-bottom:var(--borde)}}
+
+  .reglas{display:grid;grid-template-columns:1fr 1fr;border:var(--borde)}
+  .reglas > div{padding:var(--espacio-4);border-right:var(--borde);border-bottom:var(--borde)}
+  .reglas > div:nth-child(2n){border-right:0}
+  .reglas > div:nth-last-child(-n+2){border-bottom:0}
+  .reglas b{display:block;margin-bottom:var(--espacio-2)}
+  @media (max-width:760px){.reglas{grid-template-columns:1fr}.reglas > div{border-right:0}.reglas > div:nth-last-child(2){border-bottom:var(--borde)}}
+
+  footer{padding:var(--espacio-5) var(--margen-pagina)}
+</style>
+</head>
+<body>
+
+<div class="top label">
+  <span>Raigal · Design system <span class="acc">v0.1</span></span>
+  <nav>
+    <a href="#principios">Principios</a><a href="#color">Color</a><a href="#tipografia">Tipografía</a><a href="#espaciado">Espaciado</a><a href="#bordes">Bordes</a><a href="#pendiente">Pendiente</a>
+  </nav>
+</div>
+
+<div class="intro">
+  <h1 class="t">Sistema de diseño<span class="acc">.</span></h1>
+  <p>Tokens y reglas de la UI de Raigal. Estilo brutalista y tipográfico con color. Todo sale de <code>tokens.css</code>: si cambia un valor allá, cambia en esta página.</p>
+</div>
+
+<!-- 1. PRINCIPIOS -->
+<section id="principios">
+  <div class="cab label"><b>1</b>Principios</div>
+  <div class="cuerpo">
+    <div class="reglas">
+      <div><b class="t e-h3">La tipografía manda.</b>La jerarquía se resuelve con tamaño y peso, no con adornos. Los titulares son grandes y de tracking cerrado.</div>
+      <div><b class="t e-h3">Plano y recto.</b>Radio 0, sin sombras, sin degradés. La estructura se marca con líneas de 1&nbsp;px.</div>
+      <div><b class="t e-h3">Un solo acento.</b>El azul del logo es el único color de marca. Se usa en bloques grandes, acentos de texto y botones.</div>
+      <div><b class="t e-h3">Datos en mono.</b>Índices, etiquetas, precios y metadatos van en DM Mono, en mayúsculas y con tracking abierto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. COLOR -->
+<section id="color">
+  <div class="cab label"><b>2</b>Color</div>
+  <div class="cuerpo">
+    <h2 class="t">Neutros cálidos + azul<span class="acc">.</span></h2>
+    <div class="muestras">
+      <div class="muestra"><i style="background:var(--raigal-papel)"></i><div><span class="label">Papel</span><code>--raigal-papel</code><br><span class="label">#FAFAF8</span></div></div>
+      <div class="muestra"><i style="background:var(--raigal-tinta)"></i><div><span class="label">Tinta</span><code>--raigal-tinta</code><br><span class="label">#1E1E1C</span></div></div>
+      <div class="muestra"><i style="background:var(--raigal-azul)"></i><div><span class="label">Azul</span><code>--raigal-azul</code><br><span class="label">#1A5AE8</span></div></div>
+      <div class="muestra"><i style="background:var(--raigal-gris)"></i><div><span class="label">Gris suave</span><code>--raigal-gris</code><br><span class="label">#E9E9E6</span></div></div>
+    </div>
+    <p class="nota">El azul y la tinta están estimados a partir del logo. Hay que confirmarlos con el manual de marca.</p>
+
+    <h3 class="t">Tokens semánticos</h3>
+    <div class="scroll"><table>
+      <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+      <tr><td><code>--color-fondo</code></td><td>papel</td><td>Fondo de página</td></tr>
+      <tr><td><code>--color-texto</code></td><td>tinta</td><td>Texto sobre fondo claro</td></tr>
+      <tr><td><code>--color-linea</code></td><td>tinta</td><td>Bordes y divisores</td></tr>
+      <tr><td><code>--color-acento</code></td><td>azul</td><td>Acentos de texto, botones, índices</td></tr>
+      <tr><td><code>--color-fondo-azul</code></td><td>azul</td><td>Bloques de color a página completa (texto en papel)</td></tr>
+      <tr><td><code>--color-fondo-oscuro</code></td><td>tinta</td><td>Bloques oscuros (texto en papel, azul solo en formas)</td></tr>
+      <tr><td><code>--color-fondo-suave</code></td><td>gris suave</td><td>Placeholders de imagen y chips de código</td></tr>
+    </table></div>
+
+    <h3 class="t">Combinaciones y contraste</h3>
+    <div class="scroll"><table id="contraste">
+      <tr><th>Combinación</th><th>Contraste</th><th>Texto normal</th><th>Texto grande</th></tr>
+    </table></div>
+    <p class="nota">Mínimos WCAG AA: 4,5:1 para texto normal y 3:1 para texto grande (desde 24&nbsp;px, o 19&nbsp;px en negrita). Los valores se calculan al abrir la página.</p>
+
+    <h3 class="t">Superficies</h3>
+    <div class="bloques">
+      <div><span class="label">Fondo papel</span><div class="t e-h2">Texto en tinta con <span class="acc">acento azul</span>.</div></div>
+      <div class="b-azul"><span class="label">Fondo azul</span><div class="t e-h2">Texto en papel.</div></div>
+      <div class="b-oscuro"><span class="label">Fondo oscuro</span><div class="t e-h2">Azul solo en el punto<span class="punto">.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TIPOGRAFÍA -->
+<section id="tipografia">
+  <div class="cab label"><b>3</b>Tipografía</div>
+  <div class="cuerpo">
+    <h2 class="t">Tres familias, tres roles<span class="acc">.</span></h2>
+    <div class="familias">
+      <div><span class="label">Títulos · <code>--fuente-titulo</code></span><div class="t gran">Familjen Grotesk</div><p>Peso 700, tracking −4,5%. Grotesca con ink traps.</p></div>
+      <div><span class="label">Cuerpo · <code>--fuente-cuerpo</code></span><div class="gran" style="font-family:var(--fuente-cuerpo);font-weight:500;letter-spacing:-.02em">Inter Tight</div><p>Pesos 400 y 500. Texto corrido, botones, formularios.</p></div>
+      <div><span class="label">Datos · <code>--fuente-mono</code></span><div class="gran" style="font-family:var(--fuente-mono);font-weight:500;font-size:var(--texto-h2)">DM Mono</div><p>Mayúsculas, tracking +4%. Índices, etiquetas, precios.</p></div>
+    </div>
+
+    <h3 class="t">Escala</h3>
+    <p class="nota" style="margin:0 0 var(--espacio-4)">Los tamaños grandes son fluidos: cambian con el ancho de la ventana, entre el mínimo (móvil) y el máximo (escritorio).</p>
+    <div class="escala">
+      <div><div class="meta label"><b>display</b><code>--texto-display</code><br>44 → 96 px · lh 0,90</div><div class="ej"><div class="t e-display">Cambiamos <span class="acc">miradas</span>.</div></div></div>
+      <div><div class="meta label"><b>h1</b><code>--texto-h1</code><br>36 → 64 px · lh 0,94</div><div class="ej"><div class="t e-h1">Mobiliario para locales</div></div></div>
+      <div><div class="meta label"><b>h2</b><code>--texto-h2</code><br>28 → 44 px · lh 1,0</div><div class="ej"><div class="t e-h2">Productos destacados<span class="acc">.</span></div></div></div>
+      <div><div class="meta label"><b>h3</b><code>--texto-h3</code><br>22 → 28 px · lh 1,1</div><div class="ej"><div class="t e-h3">Porta macetas</div></div></div>
+      <div><div class="meta label"><b>lead</b><code>--texto-lead</code><br>20 px · lh 1,4</div><div class="ej"><p class="e-lead">Recuperamos residuos plásticos y los convertimos en placas de plástico reciclado.</p></div></div>
+      <div><div class="meta label"><b>body</b><code>--texto-body</code><br>16 px · lh 1,5</div><div class="ej"><p class="e-body">Cada pieza se fabrica a pedido. Antes de producir te mostramos medidas, color y plazo para que confirmes.</p></div></div>
+      <div><div class="meta label"><b>small</b><code>--texto-small</code><br>14 px · lh 1,5</div><div class="ej"><p class="e-small">Notas, pies de foto y textos legales.</p></div></div>
+      <div><div class="meta label"><b>label</b><code>--texto-label</code><br>12 px · mono · MAYÚS.</div><div class="ej"><div class="label">01 / 09 · Objetos cotidianos · Ver →</div></div></div>
+    </div>
+
+    <h3 class="t">Botones</h3>
+    <p style="display:flex;gap:var(--espacio-3);flex-wrap:wrap"><a class="btn" href="#">Pedí tu cotización</a><a class="btn sec" href="#">Conocé el material</a></p>
+  </div>
+</section>
+
+<!-- 4. ESPACIADO -->
+<section id="espaciado">
+  <div class="cab label"><b>4</b>Espaciado</div>
+  <div class="cuerpo">
+    <h2 class="t">Base de 8 px<span class="acc">.</span></h2>
+    <div class="esp label">
+      <div><code>--espacio-1</code><span>4 px</span><i style="width:var(--espacio-1)"></i></div>
+      <div><code>--espacio-2</code><span>8 px</span><i style="width:var(--espacio-2)"></i></div>
+      <div><code>--espacio-3</code><span>16 px</span><i style="width:var(--espacio-3)"></i></div>
+      <div><code>--espacio-4</code><span>24 px</span><i style="width:var(--espacio-4)"></i></div>
+      <div><code>--espacio-5</code><span>32 px</span><i style="width:var(--espacio-5)"></i></div>
+      <div><code>--espacio-6</code><span>48 px</span><i style="width:var(--espacio-6)"></i></div>
+      <div><code>--espacio-7</code><span>64 px</span><i style="width:var(--espacio-7)"></i></div>
+      <div><code>--espacio-8</code><span>96 px</span><i style="width:var(--espacio-8)"></i></div>
+      <div><code>--espacio-9</code><span>128 px</span><i style="width:var(--espacio-9)"></i></div>
+    </div>
+    <p class="nota">Uso: 1 y 2 entre ícono y texto · 3 padding interno de botones y campos · 4 y 5 entre elementos de un bloque · 6 y 7 entre bloques · 8 y 9 aire de secciones grandes.</p>
+    <h3 class="t">Layout fluido</h3>
+    <div class="scroll"><table>
+      <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+      <tr><td><code>--margen-pagina</code></td><td>16 → 32 px</td><td>Margen lateral de la página</td></tr>
+      <tr><td><code>--aire-seccion</code></td><td>48 → 96 px</td><td>Aire vertical al abrir una sección</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- 5. BORDES -->
+<section id="bordes">
+  <div class="cab label"><b>5</b>Bordes y forma</div>
+  <div class="cuerpo">
+    <h2 class="t">Línea fina, esquina recta<span class="acc">.</span></h2>
+    <div class="scroll"><table>
+      <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+      <tr><td><code>--borde-ancho</code></td><td>1 px</td><td>Grosor único de línea</td></tr>
+      <tr><td><code>--borde</code></td><td>1 px sólido, tinta</td><td>Divisores, tablas, contornos de campos y tarjetas</td></tr>
+      <tr><td><code>--radio</code></td><td>0</td><td>Ningún componente tiene esquinas redondeadas</td></tr>
+      <tr><td><code>--sombra</code></td><td>none</td><td>Sin sombras</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- 6. PENDIENTE -->
+<section id="pendiente">
+  <div class="cab label"><b>6</b>Pendiente</div>
+  <div class="cuerpo">
+    <div class="scroll"><table>
+      <tr><th>Tema</th><th>Qué falta</th></tr>
+      <tr><td>Marca</td><td>Hex oficiales de azul y tinta; logo en SVG guardado en el proyecto</td></tr>
+      <tr><td>Grilla</td><td>Columnas, gutters, ancho máximo y breakpoints definitivos</td></tr>
+      <tr><td>Estados</td><td>Hover, foco, deshabilitado, error y éxito (incluye colores funcionales)</td></tr>
+      <tr><td>Componentes</td><td>Header, footer, tarjeta de producto, filas índice, formularios, bloque de cifras</td></tr>
+      <tr><td>Titulares</td><td>Familjen en uso; Schibsted y Archivo quedan para que Juli evalúe (ver <code>prueba-portada.html</code>)</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="label">Raigal · Design system v0.1 · Tokens en <code>diseno/tokens.css</code></footer>
+
+<script>
+  /* Calcula contrastes WCAG con los valores reales de tokens.css */
+  (function(){
+    var cs=getComputedStyle(document.documentElement);
+    function v(n){return cs.getPropertyValue(n).trim()}
+    function lum(hex){
+      var h=hex.replace('#','');var c=[0,2,4].map(function(i){
+        var s=parseInt(h.substr(i,2),16)/255;return s<=0.03928?s/12.92:Math.pow((s+0.055)/1.055,2.4)});
+      return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2];
+    }
+    function ratio(a,b){var l1=lum(a),l2=lum(b);var hi=Math.max(l1,l2),lo=Math.min(l1,l2);return (hi+0.05)/(lo+0.05)}
+    var P=v('--raigal-papel'),T=v('--raigal-tinta'),A=v('--raigal-azul');
+    var pares=[
+      ['Tinta sobre papel',T,P,T,P],
+      ['Azul sobre papel',A,P,A,P],
+      ['Papel sobre azul',P,A,P,A],
+      ['Papel sobre tinta',P,T,P,T],
+      ['Azul sobre tinta',A,T,A,T]
+    ];
+    var tb=document.getElementById('contraste');
+    pares.forEach(function(p){
+      var r=ratio(p[1],p[2]);
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td><span class="par" style="color:'+p[1]+';background:'+p[2]+'">'+p[0]+'</span></td><td>'+r.toFixed(1).replace('.',',')+' : 1</td><td class="'+(r>=4.5?'ok':'no')+'">'+(r>=4.5?'Cumple':'No usar')+'</td><td class="'+(r>=3?'ok':'no')+'">'+(r>=3?'Cumple':'No usar')+'</td>';
+      tb.appendChild(tr);
+    });
+  })();
+</script>
+</body>
+</html>
