@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Prueba tipográfica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,900&family=Inter+Tight:wght@400;500;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  /* Tokens provisorios: se oficializan en la siguiente ronda */
+  :root{
+    --papel:#F4F2EE; --tinta:#1E1E1C; --azul:#1A5AE8; --linea:#1E1E1C;
+    --f-grotesca:'Inter Tight',system-ui,sans-serif;
+    --f-serif:'Fraunces',Georgia,serif;
+    --f-serif-it:'Instrument Serif',Georgia,serif;
+    --f-mono:'DM Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--papel);color:var(--tinta);font-family:var(--f-grotesca);line-height:1.4}
+  .aviso{font:500 12px/1.5 var(--f-mono);padding:12px 24px;border-bottom:1px solid var(--linea);text-transform:uppercase;letter-spacing:.04em}
+  .opcion{border-bottom:1px solid var(--linea)}
+  .cab{display:flex;justify-content:space-between;gap:16px;padding:12px 24px;border-bottom:1px solid var(--linea);font:500 12px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.04em}
+  .cab b{background:var(--azul);color:var(--papel);padding:0 8px;font-weight:500}
+  .hero{padding:48px 24px 40px}
+  .hero h1{font-size:clamp(48px,11vw,168px);line-height:.88;text-wrap:balance}
+  .hero p{max-width:46ch;margin-top:32px;font-size:18px}
+  .fila{display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:baseline;padding:14px 24px;border-top:1px solid var(--linea);font-size:20px}
+  .fila span:first-child,.fila span:last-child{font:400 12px var(--f-mono);text-transform:uppercase}
+  .acciones{display:flex;gap:12px;flex-wrap:wrap;padding:24px;border-top:1px solid var(--linea)}
+  .btn{font:500 14px var(--f-grotesca);padding:14px 22px;border:1px solid var(--tinta);background:var(--azul);color:var(--papel);border-color:var(--azul);text-transform:uppercase;letter-spacing:.02em}
+  .btn.sec{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+  .bloque{background:var(--azul);color:var(--papel);padding:32px 24px}
+  .bloque .mono{font:400 12px var(--f-mono);text-transform:uppercase;margin-bottom:12px}
+  .bloque h2{font-size:clamp(32px,6vw,72px);line-height:.95}
+
+  /* A. Contraste */
+  .A h1,.A h2{font-family:var(--f-grotesca);font-weight:900;letter-spacing:-.045em}
+  /* B. Eco del logo */
+  .B h1,.B h2{font-family:var(--f-serif);font-weight:900;letter-spacing:-.03em;line-height:.95}
+  /* C. Mixta */
+  .C h1,.C h2{font-family:var(--f-grotesca);font-weight:900;letter-spacing:-.045em}
+  .C em{font-family:var(--f-serif-it);font-style:italic;font-weight:400;letter-spacing:-.01em}
+  .C h1{line-height:.92}
+  @media (max-width:640px){.fila{grid-template-columns:48px 1fr}.fila span:last-child{display:none}}
+</style>
+</head>
+<body>
+<div class="aviso">Prueba de dirección tipográfica · textos ilustrativos · neutros cálidos + azul #1A5AE8 (aprox., a confirmar)</div>
+
+<!-- A -->
+<section class="opcion A">
+  <div class="cab"><span><b>A</b> Contraste</span><span>Inter Tight 900 / DM Mono</span></div>
+  <div class="hero">
+    <h1>Plástico que ya existía, objetos que vas a usar.</h1>
+    <p>Hacemos mobiliario, señalética y objetos cotidianos con plástico reciclado. Elegís, nos contás qué necesitás y lo producimos.</p>
+  </div>
+  <div class="fila"><span>01</span><span>Objetos cotidianos</span><span>Ver →</span></div>
+  <div class="fila"><span>02</span><span>Mobiliario para locales</span><span>Ver →</span></div>
+  <div class="fila"><span>03</span><span>Señalética</span><span>Ver →</span></div>
+  <div class="bloque"><div class="mono">El material</div><h2>Un material, mil formas.</h2></div>
+  <div class="acciones"><span class="btn">Pedí tu presupuesto</span><span class="btn sec">Conocé el material</span></div>
+</section>
+
+<!-- B -->
+<section class="opcion B">
+  <div class="cab"><span><b>B</b> Eco del logo</span><span>Fraunces 900 / Inter Tight / DM Mono</span></div>
+  <div class="hero">
+    <h1>Plástico que ya existía, objetos que vas a usar.</h1>
+    <p>Hacemos mobiliario, señalética y objetos cotidianos con plástico reciclado. Elegís, nos contás qué necesitás y lo producimos.</p>
+  </div>
+  <div class="fila"><span>01</span><span>Objetos cotidianos</span><span>Ver →</span></div>
+  <div class="fila"><span>02</span><span>Mobiliario para locales</span><span>Ver →</span></div>
+  <div class="fila"><span>03</span><span>Señalética</span><span>Ver →</span></div>
+  <div class="bloque"><div class="mono">El material</div><h2>Un material, mil formas.</h2></div>
+  <div class="acciones"><span class="btn">Pedí tu presupuesto</span><span class="btn sec">Conocé el material</span></div>
+</section>
+
+<!-- C -->
+<section class="opcion C">
+  <div class="cab"><span><b>C</b> Mixta</span><span>Inter Tight 900 + Instrument Serif itálica / DM Mono</span></div>
+  <div class="hero">
+    <h1>Plástico que <em>ya existía</em>, objetos que vas a usar.</h1>
+    <p>Hacemos mobiliario, señalética y objetos cotidianos con plástico reciclado. Elegís, nos contás qué necesitás y lo producimos.</p>
+  </div>
+  <div class="fila"><span>01</span><span>Objetos cotidianos</span><span>Ver →</span></div>
+  <div class="fila"><span>02</span><span>Mobiliario para locales</span><span>Ver →</span></div>
+  <div class="fila"><span>03</span><span>Señalética</span><span>Ver →</span></div>
+  <div class="bloque"><div class="mono">El material</div><h2>Un material, <em>mil formas</em>.</h2></div>
+  <div class="acciones"><span class="btn">Pedí tu presupuesto</span><span class="btn sec">Conocé el material</span></div>
+</section>
+</body>
+</html>

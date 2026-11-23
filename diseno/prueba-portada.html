@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Prueba de portada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,900&family=Inter+Tight:wght@400;500;600&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#FAFAF8; --tinta:#1E1E1C; --azul:#1A5AE8; --gris:#E9E9E6;
+    --f-titulo:'Schibsted Grotesk',system-ui,sans-serif;
+    --f-cuerpo:'Inter Tight',system-ui,sans-serif;
+    --f-mono:'DM Mono',ui-monospace,monospace;
+    --e-1:4px; --e-2:8px; --e-3:16px; --e-4:24px; --e-5:32px; --e-6:48px; --e-7:64px; --e-8:96px;
+    --borde:1px solid var(--tinta);
+    --margen:clamp(16px,3vw,32px); --seccion:clamp(48px,8vw,96px);
+    --t-display:clamp(44px,8vw,96px); --t-h1:clamp(36px,5.5vw,64px); --t-h2:clamp(28px,3.6vw,44px); --t-h3:clamp(22px,2.2vw,28px);
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--papel);color:var(--tinta);font:400 16px/1.5 var(--f-cuerpo)}
+  a{color:inherit;text-decoration:none}
+  .mono{font:500 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.04em}
+  .t{font-family:var(--f-titulo);font-weight:900;letter-spacing:-.05em;text-wrap:balance}
+  body.arch .t{font-family:'Archivo';font-stretch:62%;letter-spacing:-.02em;text-transform:uppercase}
+  body.fam .t{font-family:'Familjen Grotesk',system-ui,sans-serif;font-weight:700;letter-spacing:-.045em}
+  body.fam .stats b{font-family:'Familjen Grotesk',system-ui,sans-serif;font-weight:700;letter-spacing:-.045em}
+  .display{font-size:var(--t-display);line-height:.9}
+  .h1{font-size:var(--t-h1);line-height:.94}
+  .h2{font-size:var(--t-h2);line-height:1}
+  .h3{font-size:var(--t-h3);line-height:1.1}
+  body.arch .display,body.arch .h1{line-height:.86}
+  .lead{font-size:20px;line-height:1.4;max-width:46ch}
+  .acc{color:var(--azul)}
+  .btn{display:inline-block;font:500 14px var(--f-cuerpo);text-transform:uppercase;letter-spacing:.02em;padding:var(--e-3) var(--e-4);border:var(--borde);border-color:var(--azul);background:var(--azul);color:#fff}
+  .btn.sec{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+  .btn.inv{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
+  .pad{padding-left:var(--margen);padding-right:var(--margen)}
+  section{border-bottom:var(--borde)}
+
+  /* barra de prueba */
+  .prueba{position:sticky;top:0;z-index:10;background:var(--tinta);color:var(--papel);display:flex;justify-content:space-between;align-items:center;gap:var(--e-3);flex-wrap:wrap;padding:var(--e-2) var(--margen)}
+  .sel{display:flex}
+  .sel label{border:1px solid var(--papel);padding:var(--e-1) var(--e-3);cursor:pointer;margin-left:-1px}
+  .sel input{display:none}
+  .sel input:checked+span{background:var(--azul);margin:calc(-1*var(--e-1)) calc(-1*var(--e-3));padding:var(--e-1) var(--e-3);display:block}
+
+  /* header */
+  header{display:flex;justify-content:space-between;align-items:center;gap:var(--e-3);padding:var(--e-3) var(--margen);border-bottom:var(--borde)}
+  .logo{font:900 32px/1 'Fraunces',Georgia,serif;letter-spacing:-.04em}
+  .logo i{color:var(--azul);font-style:normal}
+  nav{display:flex;gap:var(--e-4);flex-wrap:wrap}
+  nav a:hover{color:var(--azul)}
+  @media (max-width:760px){nav{display:none}}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.4fr 1fr}
+  .hero-t{padding:var(--seccion) var(--margen) var(--e-6);display:flex;flex-direction:column;gap:var(--e-5);justify-content:space-between;border-right:var(--borde)}
+  .acciones{display:flex;gap:var(--e-3);flex-wrap:wrap}
+  .ph{background:var(--gris);display:flex;align-items:flex-end;padding:var(--e-3);min-height:240px}
+  @media (max-width:860px){.hero{grid-template-columns:1fr}.hero-t{border-right:0;border-bottom:var(--borde)}}
+
+  /* bloque azul */
+  .azul{background:var(--azul);color:var(--papel);padding:var(--seccion) var(--margen)}
+  .azul .t{max-width:18ch}
+
+  /* qué hacemos */
+  .head{display:grid;grid-template-columns:1fr 2fr;gap:var(--e-5);padding:var(--seccion) var(--margen) var(--e-6)}
+  .head p{max-width:56ch}
+  .filas>div{display:grid;grid-template-columns:64px 1fr 2fr;gap:var(--e-3);padding:var(--e-4) var(--margen);border-top:var(--borde);align-items:baseline}
+  .filas p{max-width:52ch}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stats div{padding:var(--e-5) var(--margen);border-top:var(--borde);border-right:var(--borde)}
+  .stats div:last-child{border-right:0}
+  .stats b{display:block;font:900 var(--t-h1)/1 var(--f-titulo);letter-spacing:-.05em;color:var(--azul)}
+  body.arch .stats b{font-family:'Archivo';font-stretch:62%;letter-spacing:-.02em}
+  @media (max-width:760px){.head,.filas>div{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats div{border-right:0}}
+
+  /* productos */
+  .grilla{display:grid;grid-template-columns:repeat(4,1fr)}
+  .grilla a{padding:var(--e-3) var(--margen) var(--e-4);border-right:var(--borde);display:flex;flex-direction:column;gap:var(--e-2)}
+  .grilla a:last-child{border-right:0}
+  .grilla .ph{min-height:200px;margin:0 calc(-1*var(--margen));margin-bottom:var(--e-2)}
+  .grilla a:hover .h3{color:var(--azul)}
+  @media (max-width:860px){.grilla{grid-template-columns:1fr 1fr}.grilla a:nth-child(2){border-right:0}.grilla a:nth-child(-n+2){border-bottom:var(--borde)}}
+  @media (max-width:520px){.grilla{grid-template-columns:1fr}.grilla a{border-right:0;border-bottom:var(--borde)}}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:var(--e-3);padding:var(--seccion) var(--margen) var(--e-5)}
+
+  /* cta oscuro */
+  .cta{background:var(--tinta);color:var(--papel);padding:var(--seccion) var(--margen);display:grid;grid-template-columns:2fr 1fr;gap:var(--e-5);align-items:end}
+  .cta .punto{color:var(--azul)}
+  .cta p{margin-top:var(--e-4);max-width:50ch}
+  @media (max-width:760px){.cta{grid-template-columns:1fr}}
+
+  footer{padding:var(--e-6) var(--margen);display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--e-5)}
+  footer li{list-style:none;margin-top:var(--e-1)}
+  footer ul{padding:0}
+  @media (max-width:760px){footer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="prueba mono">
+  <span>Prueba de portada · textos del wireframe · logo y fotos provisorios</span>
+  <div class="sel"><label><input type="radio" name="f" value="a2" checked><span>A2 Schibsted</span></label><label><input type="radio" name="f" value="a3"><span>A3 Archivo</span></label><label><input type="radio" name="f" value="a4"><span>A4 Familjen</span></label></div>
+</div>
+
+<header>
+  <a class="logo" href="#">raigal<i>.</i></a>
+  <nav class="mono"><a href="#">Productos</a><a href="#">Servicios</a><a href="#">El material</a><a href="#">Bitácora</a><a href="#">Nosotros</a></nav>
+  <a class="btn sec" href="#" style="padding:var(--e-2) var(--e-3)">Contacto</a>
+</header>
+
+<section class="hero">
+  <div class="hero-t">
+    <h1 class="t display">Transformamos materiales. <span class="acc">Cambiamos miradas.</span></h1>
+    <div style="display:grid;gap:var(--e-4)">
+      <p class="lead">Recuperamos residuos plásticos y los convertimos en placas de plástico reciclado para objetos, mobiliario y proyectos a medida.</p>
+      <div class="acciones"><a class="btn" href="#">Ver productos</a><a class="btn sec" href="#">Contanos tu proyecto</a></div>
+    </div>
+  </div>
+  <div class="ph mono">Placas de plástico reciclado (foto)</div>
+</section>
+
+<section class="azul">
+  <p class="mono" style="margin-bottom:var(--e-4)">Nuestra postura</p>
+  <h2 class="t h1">No nacimos para reciclar. Nacimos para rediseñar.</h2>
+</section>
+
+<section>
+  <div class="head">
+    <h2 class="t h2">Qué hacemos<span class="acc">.</span></h2>
+    <div><p>Hay un exceso de plástico en el sistema: cerca del 91 % de los residuos plásticos no se recicla. Raigal existe para hacerse cargo del presente y rediseñar el futuro.</p><p class="mono" style="margin-top:var(--e-2);opacity:.75">Fuente: OCDE</p></div>
+  </div>
+  <div class="filas">
+    <div><span class="mono">01</span><h3 class="t h3">Recuperar</h3><p>Recuperamos plástico de origen domiciliario, comercial e industrial para que no termine contaminando nuestro entorno.</p></div>
+    <div><span class="mono">02</span><h3 class="t h3">Transformar</h3><p>Lo convertimos en productos útiles y pensados para durar: el plástico reciclado puede ser la materia prima de nuevos objetos de valor.</p></div>
+    <div><span class="mono">03</span><h3 class="t h3">Rediseñar</h3><p>Usamos el proyecto para cuestionar cómo diseñamos los objetos, materiales y sistemas que generan residuos.</p></div>
+  </div>
+  <div class="stats">
+    <div><b>100 %</b><span class="mono">plástico reciclado y reciclable</span></div>
+    <div><b>3</b><span class="mono">tipos de plástico: HDPE, PP y PS</span></div>
+    <div><b>1 m × 1 m</b><span class="mono">placas en 4 espesores</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2 class="t h2">Productos destacados<span class="acc">.</span></h2><a class="btn sec" href="#">Ver todos</a></div>
+  <div class="grilla" style="border-top:var(--borde)">
+    <a href="#"><div class="ph mono">Foto</div><span class="mono">Objetos cotidianos</span><h3 class="t h3">Porta macetas</h3><span class="mono">$ 00.000 · ejemplo</span></a>
+    <a href="#"><div class="ph mono">Foto</div><span class="mono">Objetos cotidianos</span><h3 class="t h3">Jaboneras</h3><span class="mono">$ 00.000 · ejemplo</span></a>
+    <a href="#"><div class="ph mono">Foto</div><span class="mono">Mobiliario interior</span><h3 class="t h3">Mesas de arrime</h3><span class="mono">$ 000.000 · ejemplo</span></a>
+    <a href="#"><div class="ph mono">Foto</div><span class="mono">Mobiliario interior</span><h3 class="t h3">Banquitos</h3><span class="mono">$ 000.000 · ejemplo</span></a>
+  </div>
+</section>
+
+<section class="cta">
+  <div><h2 class="t h1">Una solución para tu empresa, con impacto positivo<span class="punto">.</span></h2><p>Regalos corporativos, señalética, mobiliario para locales, experiencias educativas y asesoramiento. Contanos qué necesitás y lo pensamos juntos.</p></div>
+  <div><a class="btn inv" href="#">Pedí tu cotización</a></div>
+</section>
+
+<footer>
+  <div><a class="logo" href="#">raigal<i>.</i></a><p style="margin-top:var(--e-3)">Diseño en plástico reciclado. Hecho acá.</p><ul class="mono" style="margin-top:var(--e-3)"><li>Don Bosco 882, Bernal</li><li>hola@raigal.ar</li><li>instagram.com/hola.raigal</li></ul></div>
+  <div><p class="mono">Menú</p><ul><li>Productos</li><li>Servicios</li><li>El material</li><li>Nosotros</li></ul></div>
+  <div><p class="mono">Ayuda</p><ul><li>Envíos</li><li>Medios de pago</li><li>Preguntas frecuentes</li></ul></div>
+</footer>
+
+<script>
+  document.querySelectorAll('input[name=f]').forEach(function(r){
+    r.addEventListener('change',function(){document.body.className={a3:'arch',a4:'fam'}[r.value]||''});
+  });
+</script>
+</body>
+</html>

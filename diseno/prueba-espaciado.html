@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Espaciado y bordes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#FAFAF8; --tinta:#1E1E1C; --azul:#1A5AE8;
+    --f-titulo:'Schibsted Grotesk',system-ui,sans-serif;
+    --f-cuerpo:'Inter Tight',system-ui,sans-serif;
+    --f-mono:'DM Mono',ui-monospace,monospace;
+
+    /* Espaciado: base 8px */
+    --e-1:4px; --e-2:8px; --e-3:16px; --e-4:24px; --e-5:32px;
+    --e-6:48px; --e-7:64px; --e-8:96px; --e-9:128px;
+
+    /* Bordes */
+    --borde:1px solid var(--tinta);
+    --radio:0;
+
+    /* Márgenes de página (fluidos) */
+    --margen:clamp(16px, 3vw, 32px);
+    --seccion:clamp(48px, 8vw, 96px);
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--papel);color:var(--tinta);font:400 16px/1.5 var(--f-cuerpo)}
+  .aviso{font:500 12px/1.5 var(--f-mono);padding:var(--e-3) var(--margen);border-bottom:var(--borde);text-transform:uppercase;letter-spacing:.04em}
+  .bloque{border-bottom:var(--borde)}
+  .tit{font:500 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.04em;padding:var(--e-3) var(--margen);border-bottom:var(--borde)}
+  .tit b{background:var(--azul);color:#fff;padding:0 var(--e-2);font-weight:500;margin-right:var(--e-2)}
+  .cuerpo{padding:var(--e-5) var(--margen)}
+  .esc{display:grid;gap:var(--e-2)}
+  .esc div{display:grid;grid-template-columns:88px 56px 1fr;align-items:center;gap:var(--e-3);font:400 12px var(--f-mono);text-transform:uppercase}
+  .esc i{display:block;height:var(--e-3);background:var(--azul)}
+  .nota{font:400 12px/1.6 var(--f-mono);text-transform:uppercase;margin-top:var(--e-4);max-width:70ch;opacity:.85}
+
+  /* Ejemplo compuesto solo con tokens */
+  .demo{border:var(--borde);margin:var(--e-5) var(--margen)}
+  .demo-h{padding:var(--seccion) var(--margen) var(--e-6)}
+  .demo-h h2{font:900 clamp(36px,5.5vw,64px)/.94 var(--f-titulo);letter-spacing:-.05em;text-wrap:balance}
+  .demo-h p{margin-top:var(--e-4);max-width:46ch;font-size:20px;line-height:1.4}
+  .fila{display:grid;grid-template-columns:64px 1fr auto;gap:var(--e-3);padding:var(--e-3) var(--margen);border-top:var(--borde);align-items:baseline;font-size:20px}
+  .fila span:first-child,.fila span:last-child{font:400 12px var(--f-mono);text-transform:uppercase}
+  .acc{padding:var(--e-4) var(--margen);border-top:var(--borde);display:flex;gap:var(--e-3);flex-wrap:wrap}
+  .btn{font:500 14px var(--f-cuerpo);text-transform:uppercase;letter-spacing:.02em;padding:var(--e-3) var(--e-4);border:var(--borde);border-color:var(--azul);background:var(--azul);color:#fff;border-radius:var(--radio)}
+  .btn.sec{background:transparent;color:var(--tinta);border-color:var(--tinta)}
+  .campo{display:grid;gap:var(--e-2);padding:var(--e-4) var(--margen);border-top:var(--borde)}
+  .campo label{font:500 12px var(--f-mono);text-transform:uppercase;letter-spacing:.04em}
+  .campo div{border:var(--borde);padding:var(--e-3);color:#6b6b68;border-radius:var(--radio)}
+  @media (max-width:640px){.esc div{grid-template-columns:72px 48px 1fr}.fila{grid-template-columns:40px 1fr}.fila span:last-child{display:none}}
+</style>
+</head>
+<body>
+<div class="aviso">Espaciado y bordes · base 8px · línea 1px tinta · radio 0 · papel #FAFAF8</div>
+
+<section class="bloque">
+  <div class="tit"><b>1</b>Escala de espacios</div>
+  <div class="cuerpo">
+    <div class="esc">
+      <div><span>--e-1</span><span>4px</span><i style="width:4px"></i></div>
+      <div><span>--e-2</span><span>8px</span><i style="width:8px"></i></div>
+      <div><span>--e-3</span><span>16px</span><i style="width:16px"></i></div>
+      <div><span>--e-4</span><span>24px</span><i style="width:24px"></i></div>
+      <div><span>--e-5</span><span>32px</span><i style="width:32px"></i></div>
+      <div><span>--e-6</span><span>48px</span><i style="width:48px"></i></div>
+      <div><span>--e-7</span><span>64px</span><i style="width:64px"></i></div>
+      <div><span>--e-8</span><span>96px</span><i style="width:96px"></i></div>
+      <div><span>--e-9</span><span>128px</span><i style="width:128px"></i></div>
+    </div>
+    <p class="nota">Uso sugerido: e-1/e-2 entre ícono y texto · e-3 padding interno de botones y campos · e-4/e-5 entre elementos de un bloque · e-6/e-7 entre bloques · e-8/e-9 aire de secciones grandes.</p>
+  </div>
+</section>
+
+<section class="bloque">
+  <div class="tit"><b>2</b>Márgenes de página y secciones (fluidos)</div>
+  <div class="cuerpo"><p class="nota" style="margin-top:0">--margen: 16px en móvil → 32px en escritorio · --seccion: 48px → 96px de aire vertical al abrir una sección · línea: 1px sólida de tinta · radio: 0 en todo.</p></div>
+</section>
+
+<div class="tit" style="border:var(--borde);margin:var(--e-5) var(--margen) 0;border-bottom:0"><b>3</b>Ejemplo armado solo con tokens</div>
+<div class="demo" style="margin-top:0;border-top:var(--borde)">
+  <div class="demo-h">
+    <h2>Objetos que se quedan.</h2>
+    <p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p>
+  </div>
+  <div class="fila"><span>01</span><span>Objetos cotidianos</span><span>Ver →</span></div>
+  <div class="fila"><span>02</span><span>Mobiliario para locales</span><span>Ver →</span></div>
+  <div class="campo"><label for="m">Tu mail</label><div id="m">nombre@ejemplo.com</div></div>
+  <div class="acc"><span class="btn">Pedí tu presupuesto</span><span class="btn sec">Conocé el material</span></div>
+</div>
+</body>
+</html>

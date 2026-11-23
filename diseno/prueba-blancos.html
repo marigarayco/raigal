@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Prueba de blancos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=DM+Mono:wght@400;500&family=Inter+Tight:wght@400;500&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<style>
+  :root{ --tinta:#1E1E1C; --azul:#1A5AE8; --mono:'DM Mono',ui-monospace,monospace; }
+  *{box-sizing:border-box;margin:0}
+  body{background:#fff;color:var(--tinta);font-family:'Inter Tight',system-ui,sans-serif;line-height:1.4}
+  .aviso{font:500 12px/1.5 var(--mono);padding:12px 24px;border-bottom:1px solid var(--tinta);text-transform:uppercase;letter-spacing:.04em}
+  .banda{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--tinta)}
+  .banda div{flex:1 1 160px;padding:16px 24px;font:400 12px/1.5 var(--mono);text-transform:uppercase;border-right:1px solid var(--tinta)}
+  .banda div:last-child{border-right:0}
+  .banda i{display:block;height:48px;border:1px solid var(--tinta);margin-bottom:8px}
+
+  .blanco{border-bottom:1px solid var(--tinta)}
+  .cab{padding:12px 24px;border-bottom:1px solid var(--tinta);font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.04em}
+  .cab b{background:var(--azul);color:#fff;padding:0 8px;font-weight:500}
+  .par{display:grid;grid-template-columns:1fr 1fr}
+  .col{padding:32px 24px 40px;border-right:1px solid var(--tinta)}
+  .col:last-child{border-right:0}
+  .col .et{font:400 11px var(--mono);text-transform:uppercase;margin-bottom:16px;opacity:.75}
+  .col h1{font-size:clamp(32px,5.4vw,88px);line-height:.92}
+  .col p{margin-top:24px;font-size:16px;max-width:38ch}
+  .fila{display:flex;justify-content:space-between;border-top:1px solid var(--tinta);margin-top:28px;padding-top:10px;font:400 12px var(--mono);text-transform:uppercase}
+  .btn{display:inline-block;margin-top:20px;font:500 14px 'Inter Tight';text-transform:uppercase;padding:13px 20px;background:var(--azul);color:#fff}
+  .a2 h1{font-family:'Schibsted Grotesk';font-weight:900;letter-spacing:-.05em}
+  .a3 h1{font-family:'Archivo';font-weight:900;font-stretch:62%;letter-spacing:-.02em;text-transform:uppercase;line-height:.86}
+  .acc{color:var(--azul)}
+
+  .b1{background:#FFFFFF}
+  .b2{background:#FAFAF8}
+  .b3{background:#F4F4F2}
+  @media (max-width:720px){.par{grid-template-columns:1fr}.col{border-right:0;border-bottom:1px solid var(--tinta)}}
+</style>
+</head>
+<body>
+<div class="aviso">Blancos para el fondo "papel" · A2 vs A3 · textos ilustrativos</div>
+<div class="banda">
+  <div><i style="background:#FFFFFF"></i>B1 #FFFFFF<br>blanco puro</div>
+  <div><i style="background:#FAFAF8"></i>B2 #FAFAF8<br>blanco apenas cálido</div>
+  <div><i style="background:#F4F4F2"></i>B3 #F4F4F2<br>gris muy claro</div>
+  <div><i style="background:#F4F2EE"></i>Anterior #F4F2EE<br>el beige a descartar</div>
+</div>
+
+<section class="blanco b1">
+  <div class="cab"><b>B1</b> #FFFFFF</div>
+  <div class="par">
+    <div class="col a2"><div class="et">A2 · Schibsted Grotesk 900</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+    <div class="col a3"><div class="et">A3 · Archivo 900 condensada</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+  </div>
+</section>
+
+<section class="blanco b2">
+  <div class="cab"><b>B2</b> #FAFAF8</div>
+  <div class="par">
+    <div class="col a2"><div class="et">A2 · Schibsted Grotesk 900</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+    <div class="col a3"><div class="et">A3 · Archivo 900 condensada</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+  </div>
+</section>
+
+<section class="blanco b3">
+  <div class="cab"><b>B3</b> #F4F4F2</div>
+  <div class="par">
+    <div class="col a2"><div class="et">A2 · Schibsted Grotesk 900</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+    <div class="col a3"><div class="et">A3 · Archivo 900 condensada</div><h1>Plástico que <span class="acc">ya existía</span>, objetos que vas a usar<span class="acc">.</span></h1><p>Mobiliario, señalética y objetos cotidianos con plástico reciclado.</p><div class="fila"><span>01 Objetos cotidianos</span><span>Ver →</span></div><span class="btn">Pedí tu presupuesto</span></div>
+  </div>
+</section>
+</body>
+</html>

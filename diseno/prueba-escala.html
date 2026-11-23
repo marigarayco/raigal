@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raigal · Escala tipográfica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=DM+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&family=Schibsted+Grotesk:wght@400..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#FAFAF8; --tinta:#1E1E1C; --azul:#1A5AE8;
+    --f-titulo:'Schibsted Grotesk',system-ui,sans-serif;
+    --f-cuerpo:'Inter Tight',system-ui,sans-serif;
+    --f-mono:'DM Mono',ui-monospace,monospace;
+
+    /* Escala (fluida: mínimo móvil → máximo escritorio) */
+    --t-display:clamp(44px, 8vw, 96px);
+    --t-h1:clamp(36px, 5.5vw, 64px);
+    --t-h2:clamp(28px, 3.6vw, 44px);
+    --t-h3:clamp(22px, 2.2vw, 28px);
+    --t-lead:20px;
+    --t-body:16px;
+    --t-small:14px;
+    --t-label:12px;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--papel);color:var(--tinta);font:400 var(--t-body)/1.5 var(--f-cuerpo)}
+  .aviso{font:500 12px/1.5 var(--f-mono);padding:12px 24px;border-bottom:1px solid var(--tinta);text-transform:uppercase;letter-spacing:.04em;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+  .sel{display:flex;gap:0}
+  .sel label{border:1px solid var(--tinta);padding:4px 12px;cursor:pointer;margin-left:-1px}
+  .sel input{display:none}
+  .sel input:checked + span{background:var(--azul);color:#fff;margin:-4px -12px;padding:4px 12px;display:block}
+  .fila{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--tinta)}
+  .meta{padding:24px;border-right:1px solid var(--tinta);font:400 12px/1.6 var(--f-mono);text-transform:uppercase}
+  .meta b{display:block;font-weight:500;color:var(--azul);margin-bottom:6px}
+  .muestra{padding:24px 24px 32px;min-width:0}
+  .titulo{font-family:var(--f-titulo);font-weight:900;letter-spacing:-.05em;text-wrap:balance}
+  body.arch .titulo{font-family:'Archivo';font-stretch:62%;letter-spacing:-.02em;text-transform:uppercase}
+  .display{font-size:var(--t-display);line-height:.9}
+  .h1{font-size:var(--t-h1);line-height:.94}
+  .h2{font-size:var(--t-h2);line-height:1}
+  .h3{font-size:var(--t-h3);line-height:1.1}
+  body.arch .display,body.arch .h1{line-height:.86}
+  .lead{font-size:var(--t-lead);line-height:1.4;max-width:46ch}
+  .body{font-size:var(--t-body);max-width:60ch}
+  .small{font-size:var(--t-small);max-width:60ch;opacity:.85}
+  .label{font:500 var(--t-label)/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.04em}
+  .acc{color:var(--azul)}
+  @media (max-width:720px){.fila{grid-template-columns:1fr}.meta{border-right:0;border-bottom:1px solid var(--tinta)}}
+</style>
+</head>
+<body>
+<div class="aviso">
+  <span>Escala tipográfica · hero moderado, cuerpo 16px · fluida (cambiá el ancho de ventana)</span>
+  <div class="sel" role="radiogroup" aria-label="Fuente de titulares">
+    <label><input type="radio" name="f" value="a2" checked><span>A2 Schibsted</span></label>
+    <label><input type="radio" name="f" value="a3"><span>A3 Archivo</span></label>
+  </div>
+</div>
+
+<div class="fila">
+  <div class="meta"><b>display</b>44 → 96 px<br>lh .90 · ls −5%<br>Hero de portada</div>
+  <div class="muestra"><div class="titulo display">Plástico que <span class="acc">ya existía</span>.</div></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>h1</b>36 → 64 px<br>lh .94 · ls −5%<br>Título de página</div>
+  <div class="muestra"><div class="titulo h1">Mobiliario para locales</div></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>h2</b>28 → 44 px<br>lh 1.0 · ls −5%<br>Título de sección</div>
+  <div class="muestra"><div class="titulo h2">Un material, mil formas<span class="acc">.</span></div></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>h3</b>22 → 28 px<br>lh 1.1 · ls −5%<br>Subtítulo, nombre de producto</div>
+  <div class="muestra"><div class="titulo h3">Posavasos con tu logo</div></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>lead</b>20 px<br>lh 1.4<br>Bajada bajo un titular</div>
+  <div class="muestra"><p class="lead">Hacemos mobiliario, señalética y objetos cotidianos con plástico reciclado. Elegís, nos contás qué necesitás y lo producimos.</p></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>body</b>16 px<br>lh 1.5<br>Texto corrido</div>
+  <div class="muestra"><p class="body">Cada pieza se fabrica a pedido. Antes de producir te mostramos medidas, color y plazo para que confirmes. Los precios y las medidas de este texto son ilustrativos.</p></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>small</b>14 px<br>lh 1.5<br>Notas, pie de foto, legales</div>
+  <div class="muestra"><p class="small">El material no está certificado para contacto directo con alimentos.</p></div>
+</div>
+<div class="fila">
+  <div class="meta"><b>label</b>12 px · mono<br>MAYÚSCULAS · ls +4%<br>Índices, etiquetas, datos</div>
+  <div class="muestra"><div class="label">01 / 09 · Objetos cotidianos · Ver →</div></div>
+</div>
+
+<script>
+  document.querySelectorAll('input[name=f]').forEach(function(r){
+    r.addEventListener('change',function(){document.body.classList.toggle('arch',r.value==='a3')});
+  });
+</script>
+</body>
+</html>
